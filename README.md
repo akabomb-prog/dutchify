@@ -1,5 +1,6 @@
 # dutchify
 Dutchify text!
+Based on [the Wikipedia article](https://en.m.wikipedia.org/wiki/Dunglish)
 
 Example usage:
 ```javascript
