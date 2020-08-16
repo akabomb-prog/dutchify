@@ -1,5 +1,3 @@
-// see https://en.m.wikipedia.org/wiki/Dunglish
-
 function dutchify(text) {
     // this is a bad implementation
 
