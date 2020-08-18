@@ -1,26 +1,32 @@
 function dutchify(text) {
-    // this is a bad implementation
-
-    // if you have a better solution to capital letters,
-    // please post it in Issues. thanks!
-    return text.replace(/oo/g, 'oe')
-        .replace(/a/g, 'e')
-        .replace(/g/g, 'k')
-        .replace(/b/g, 'p')
-        .replace(/ea/g, 'ee')
-        .replace(/oo/g, 'ie')
-        .replace(/v/g, 'f')
-        .replace(/th/g, 'd')
-        .replace(/j/g, 'dj')
-
-        .replace(/A/g, 'E')
-        .replace(/G/g, 'K')
-        .replace(/B/g, 'P')
-        .replace(/EA/g, 'EE')
-        .replace(/OO/g, 'IE')
-        .replace(/V/g, 'F')
-        .replace(/TH/g, 'D')
-        .replace(/J/g, 'DJ')
-
-        .replace(/Th/g, 'D');
+    return text.replace(/oo/ig, (match) => {
+        var out = (match[0] === match[0].toUpperCase()) ? 'O' : 'o';
+            out += (match[1] === match[1].toUpperCase()) ? 'E' : 'e';
+        return out;
+    })
+        .replace(/a/ig, (match) => {
+            return (match === match.toUpperCase()) ? 'E' : 'e';
+        })
+        .replace(/g/ig, (match) => {
+            return (match === match.toUpperCase()) ? 'K' : 'k';
+        })
+        .replace(/b/ig, (match) => {
+            return (match === match.toUpperCase()) ? 'P' : 'p';
+        })
+        .replace(/ea/ig, (match) => {
+            var out = (match[0] === match[0].toUpperCase()) ? 'E' : 'e';
+                out += (match[1] === match[1].toUpperCase()) ? 'E' : 'e';
+            return out;
+        })
+        .replace(/v/ig, (match) => {
+            return (match === match.toUpperCase()) ? 'F' : 'f';
+        })
+        .replace(/th/ig, (match) => {
+            return (match[0] === match[0].toUpperCase()) ? 'D' : 'd';
+        })
+        .replace(/j\w/ig, (match) => {
+            var out = (match[0] === match[0].toUpperCase()) ? 'D' : 'd';
+                out += (match[1] === match[1].toUpperCase()) ? 'J' : 'j';
+            return out + match[1];
+        })
 }
